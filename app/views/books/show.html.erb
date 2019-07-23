@@ -1,0 +1,16 @@
+<h1>Listing articles</h1>
+<table>
+  <tr>
+  <th>Title</th>
+  <th>author</th>
+  <th>出版社</th>
+  </tr>
+
+<tr>
+  <td><%= @book.title %></td>
+  <td><%= @book.author %></td>
+  <td><%= @book.publisher %></td>
+  <td><%= link_to 'index',books_path %></td>
+</tr>
+
+</table>

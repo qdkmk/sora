@@ -1,0 +1,20 @@
+<h1>Listing articles</h1>
+<p>簡易検索</p>
+<%= form_tag(search_books_path,method: :get) do %>
+  <%= text_field_tag :search %>
+  <%= submit_tag 'Search', :name => nil %>
+<% end %>
+<table>
+  <tr>
+  <th>Title</th>
+  <th>author</th>
+  <th></th>
+  </tr>
+<% @book.each do |book|%>
+<tr>
+  <td><%= book.title %></td>
+  <td><%= book.author %></td>
+  <td><%= link_to 'detail',book %></td>
+</tr>
+<% end %>
+</table>
