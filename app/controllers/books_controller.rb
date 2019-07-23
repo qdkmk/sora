@@ -1,12 +1,12 @@
 class BooksController < ApplicationController
   before_action :set_book,only:[:show,:edit,:update,:destroy]
   def index
-    @book = Book.all
+    @books = Book.paginate(page: params[:page], per_page: 30)
   end
   def show
   end
   def search
-    @books = Book.search(params[:search])
+    @books = Book.search(params[:search]).paginate(page: params[:page], per_page: 30)
   end
 end
 

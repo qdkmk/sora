@@ -4,6 +4,7 @@
   <%= text_field_tag :search %>
   <%= submit_tag 'Search', :name => nil %>
 <% end %>
+<%= will_paginate @books%>
 <table>
   <tr>
   <th>Title</th>
