@@ -14,7 +14,8 @@
 </tr>
 </table>
 
-  <% if current_user.already_shelved?(@book) %>
+
+  <% if current_user != nil && current_user.already_shelved?(@book) %>
     <%= button_to '積読を取り消す', shelf_path,params:{tid: @book.tid}, method: :delete %>
   <% else %>
     <%= button_to '積読する', shelves_path,params:{tid: @book.tid} %>

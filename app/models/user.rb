@@ -5,7 +5,11 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,:confirmable
 
- def already_shelved?(book)
-   self.shelves.exists?(:book_tid => book.tid)
- end
+
+  private
+    def already_shelved?(book)
+     self.shelves.exists?(book_tid: book.tid)
+    end
+
+
 end
