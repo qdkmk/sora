@@ -13,6 +13,10 @@ class BooksController < ApplicationController
   def search
     @books = Book.search(params[:search]).paginate(page: params[:page], per_page: 30)
   end
+  def author
+    @books = Book.where(pid: params[:pid])
+    @author = Book.where(pid: params[:pid]).limit(1).select(:author)
+  end
 end
 
   private

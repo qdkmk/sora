@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_23_135155) do
+ActiveRecord::Schema.define(version: 2019_07_24_094246) do
 
   create_table "books", force: :cascade do |t|
     t.integer "pid"
@@ -29,6 +29,10 @@ ActiveRecord::Schema.define(version: 2019_07_23_135155) do
     t.string "editionk"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "ranking"
+    t.integer "access"
+    t.integer "characount"
+    t.integer "minutes"
   end
 
   create_table "shelves", force: :cascade do |t|

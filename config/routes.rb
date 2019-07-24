@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :books do
     collection do
       get 'search'
+      get 'author'
     end
   end
   root 'books#index'
