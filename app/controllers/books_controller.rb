@@ -2,7 +2,7 @@ class BooksController < ApplicationController
   before_action :set_book,only:[:show,:edit,:update,:destroy]
 
   def index
-    @books = Book.paginate(page: params[:page], per_page: 30)
+    @books = Book.order("ranking").paginate(page: params[:page], per_page: 30)
   end
 
   def show
@@ -11,7 +11,12 @@ class BooksController < ApplicationController
   end
 
   def search
-    @books = Book.search(params[:search]).paginate(page: params[:page], per_page: 30)
+    #@books = Book.search(params[:search]).paginate(page: params[:page], per_page: 30)
+    if params[:time] != 0 then
+    @books = Book.where("(title LIKE ? OR author LIKE ?) AND characount < ?", "%#{params[:search]}%","%#{params[:search]}%","#{params[:time].to_i}")
+                .order("characount DESC ,ranking ASC").paginate(page: params[:page], per_page: 30)
+                .paginate(page: params[:page], per_page: 30)
+    end
   end
   def author
     @books = Book.where(pid: params[:pid])
@@ -22,4 +27,8 @@ end
   private
     def set_book
       @book = Book.find(params[:id])
+    end
+
+    def already_shelved?(user,book)
+     user.shelves.exists?(book_tid: book.tid)
     end

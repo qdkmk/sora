@@ -8,12 +8,14 @@
     <%= @user.email %>
   </li>
 </ul>
+<%= link_to 'プロフィール変更', edit_user_registration_path %>
 <h2>本棚</h2>
 <% @shelves.each do |shelf|%>
   <ul>
     <li>
       <%= (Book.find_by(tid: shelf.book_tid)).title %>
       <%= (Book.find_by(tid: shelf.book_tid)).author %>
+      <%= link_to '詳細', book_path((Book.find_by(tid: shelf.book_tid)).id) %>
     </li>
   </ul>
 <% end %>

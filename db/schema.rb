@@ -10,29 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_24_094246) do
+ActiveRecord::Schema.define(version: 2019_07_25_053554) do
 
   create_table "books", force: :cascade do |t|
     t.integer "pid"
     t.string "author"
     t.integer "tid"
     t.string "title"
-    t.string "kana"
-    t.string "trans"
-    t.string "kousakun"
-    t.string "kousakuk"
-    t.string "status"
-    t.string "statusdate"
-    t.string "original"
-    t.string "publisher"
-    t.string "editionn"
-    t.string "editionk"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "ranking"
     t.integer "access"
     t.integer "characount"
     t.integer "minutes"
+    t.string "cardurl"
   end
 
   create_table "shelves", force: :cascade do |t|
@@ -58,6 +49,7 @@ ActiveRecord::Schema.define(version: 2019_07_24_094246) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
+    t.boolean "admin", default: false
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

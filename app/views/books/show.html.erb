@@ -1,22 +1,11 @@
-<h1>Listing articles</h1>
-<table>
-  <tr>
-  <th>Title</th>
-  <th>author</th>
-  <th>出版社</th>
-  </tr>
+<h1><%= @book.title %></h1>
 
-<tr>
-  <td><%= @book.title %></td>
-  <td><%= @book.author %></td>
-  <td><%= @book.publisher %></td>
-  <td><%= link_to 'index',books_path %></td>
-</tr>
-</table>
+<h2><%= @book.author %></h2>
 
-
-  <% if current_user != nil && current_user.already_shelved?(@book) %>
-    <%= button_to '積読を取り消す', shelf_path,params:{tid: @book.tid}, method: :delete %>
+  <% if current_user != nil && already_shelved?(current_user,@book) %>
+    <%= button_to '本棚から除く', shelf_path,params:{tid: @book.tid}, method: :delete, class: :btn , class: :btn-primary%>
   <% else %>
-    <%= button_to '積読する', shelves_path,params:{tid: @book.tid} %>
+    <%= button_to '本棚に入れる', shelves_path,params:{tid: @book.tid} , class: :btn%>
   <% end %>
+
+<h2><%= link_to '図書一覧に戻る',books_path %></h2>

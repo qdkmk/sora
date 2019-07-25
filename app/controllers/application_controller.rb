@@ -1,9 +1,11 @@
 class ApplicationController < ActionController::Base
-  private
-      def logged_in_user?
-      unless  !session[:user_id].nil?
-        flash[:notice]= "Please log in."
-        redirect_to new_user_registration_path
+  before_action :configure_permitted_parameters, if: :devise_controller?
+
+  protected
+    def configure_permitted_parameters
+        added_attrs = [ :name, :email, :password, :password_confirmation　]
+        devise_parameter_sanitizer.permit :sign_up, keys: added_attrs
+        devise_parameter_sanitizer.permit :account_update, keys: added_attrs
+        devise_parameter_sanitizer.permit :sign_in, keys: added_attrs
       end
-    end
 end

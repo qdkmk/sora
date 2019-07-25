@@ -8,4 +8,6 @@ class Book < ApplicationRecord
       Book.all
     end
   end
+
+
 end

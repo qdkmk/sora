@@ -6,10 +6,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,:confirmable
 
 
-  private
-    def already_shelved?(book)
-     self.shelves.exists?(book_tid: book.tid)
-    end
-
 
 end
