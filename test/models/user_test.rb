@@ -19,4 +19,10 @@ class UserTest < ActiveSupport::TestCase
     @user.name = '     '
     assert_not @user.valid?
   end
+
+  test 'email addresses should be unique' do
+    duplicate_user = @user.dup
+    @user.save
+    assert_not duplicate_user.valid?
+  end
 end
