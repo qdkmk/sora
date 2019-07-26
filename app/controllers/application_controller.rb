@@ -8,4 +8,11 @@ class ApplicationController < ActionController::Base
         devise_parameter_sanitizer.permit :account_update, keys: added_attrs
         devise_parameter_sanitizer.permit :sign_in, keys: added_attrs
       end
+  private
+    def check_admin
+      if !current_user.try(:admin?)
+        redirect_to root_path
+        flash[:notice] = "管理者のみ閲覧できます"
+      end
+    end
 end

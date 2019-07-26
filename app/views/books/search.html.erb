@@ -1,19 +1,16 @@
 <div class="center">
 <h1>検索</h1>
 
-<div class="search input-group form-group">
+<div class="">
   <%= form_with url:search_books_path, method: :get, local: true do |form|%>
-  <div class="input-group">
+  <div class="">
     <%= text_field_tag :search,"",class:"form-control" %>
-    <span class="input-group-btn">
-      <%= form.submit 'Search', :name => nil ,class: "btn btn-default"%>
-    </span>
 
     <%= form.radio_button(:time, "2000") %>
     <%= form.label(:time, "5分以下", value: "2000")  %>
     <%= form.radio_button(:time, "6000") %>
     <%= form.label(:time, "15分以下", value: "6000")  %>
-    <%= form.radio_button(:time, "6000") %>
+    <%= form.radio_button(:time, "12000") %>
     <%= form.label(:time, "30分以下", value: "12000")  %>
     <%= form.radio_button(:time, "24000") %>
     <%= form.label(:time, "1時間以下", value: "24000") %>
@@ -21,6 +18,10 @@
     <%= form.label(:time, "2時間以下", value: "48000") %>
     <%= form.radio_button(:time, "0") %>
     <%= form.label(:time, "指定なし", value: "0") %>
+
+    <span class="">
+      <%= form.submit 'Search', :name => nil ,class: ""%>
+    </span>
   <% end %>
 
 </div>
