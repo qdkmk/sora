@@ -8,4 +8,5 @@
     <%= button_to '本棚に入れる', shelves_path,params:{tid: @book.tid} , class: :btn%>
   <% end %>
 
+<%= link_to '青空文庫で読む',@book.cardurl%>
 <h2><%= link_to '図書一覧に戻る',books_path %></h2>

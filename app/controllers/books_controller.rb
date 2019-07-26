@@ -2,7 +2,7 @@
 
 class BooksController < ApplicationController
   before_action :set_book, only: [:show]
-  before_action :check_admin, only: [:search]
+  # before_action :check_admin, only: [:search]
 
   def index
     @books = Book.order('ranking').paginate(page: params[:page], per_page: 30)
@@ -14,11 +14,10 @@ class BooksController < ApplicationController
   end
 
   def search
-    # @books = Book.search(params[:search]).paginate(page: params[:page], per_page: 30)
-    if params[:time].nil? || params[:time].zero
+    if params[:time].nil? || params[:time] == '0'
       @books = Book.where('title LIKE ? OR author LIKE ?',
                           "%#{params[:search]}%", "%#{params[:search]}%")
-                   .order('characount DESC ,ranking ASC')
+                   .order('ranking ASC, characount DESC')
                    .paginate(page: params[:page], per_page: 30)
                    .paginate(page: params[:page], per_page: 30)
     else
