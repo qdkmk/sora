@@ -1,0 +1,2 @@
+$("#adddelete_form_<%=@book.id%>")
+  .replaceWith('<td id= "adddelete_form_<%=@book.id%>"><%= button_to "本棚に入れる",shelves_path,params:{tid: @book.tid,pid:@book.pid},class: "btn btn-primary", id: "add_form_#{@book.id}",remote:true%></td>')

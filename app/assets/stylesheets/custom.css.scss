@@ -1,58 +1,82 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-.container{
-  
-}
-.center{
+.container {}
+
+.center {
   margin: auto;
   text-align: center;
   width: 80%;
-  a{
+
+  a {
     text-decoration: none;
     color: #333;
   }
-  table{
+
+  table {
     background-color: #eee;
     border-radius: 2rem;
   }
-  .table th{
+
+  .table th {
     background-color: #777;
     color: #fff;
     border: 0;
-    &:first-child{
+
+    &:first-child {
       border-radius: 2rem 0 0 0;
     }
-    &:last-child{
+
+    &:last-child {
       border-radius: 0 2rem 0 0;
     }
   }
-  .table tr:hover{
+
+  .table tr:hover {
     cursor: pointer;
     background-color: #fff;
   }
-  .table th{
+
+  .table th {
     padding: 15px;
   }
-  .table td{
+
+  .table td {
     font-size: 3rem;
-    letter-spacing: 0.3px;;
+    letter-spacing: 0.3px;
     text-align: left;
     padding: 15px 20px 15px 15px;
+
+    &.title {
+      font-size: 3.3rem;
+      width: 60%;
+    }
+
+    &.author {
+      font-size: 2rem;
+      width: 20%;
+    }
   }
-  .table .tag{
+
+  .table .tag {
     font-size: 1.5rem;
     color: #364e96;
-   border: solid 3px #364e96;
-   padding: 0.5em;
-   border-radius: 0.5em;
-   width: 100px;
-   text-align: center;
+    border: solid 3px #364e96;
+    padding: 0.5em;
+    border-radius: 0.5em;
+    width: 100px;
+    text-align: center;
   }
 }
-.search{
+
+.button_to{
+  font-size: 1.3rem;
+}
+
+.search {
   margin: 0 auto;
-  &.input-group{
+
+  &.input-group {
     width: 80%;
     font-size: 3rem;
   }
@@ -60,25 +84,31 @@
 
 .star-rating {
   position: relative;
-  display:inline-block;
+  display: inline-block;
   font-size: 3rem;
 }
-.star-rating .star-rating-item{
-  position:absolute;
+
+.star-rating .star-rating-item {
+  position: absolute;
   overflow: hidden;
 }
-.star-rating .star-rating-item:before{
-  content:"★★★★★";
+
+.star-rating .star-rating-item:before {
+  content: "★★★★★";
   color: #ffcc33;
 }
+
 .star-rating:after {
-  content:"★★★★★";
+  content: "★★★★★";
   color: #ccc;
 }
 
-h1, h2, h3, h4, h5, h6 {
-
-}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {}
 
 h1 {
   font-size: 3em;
@@ -95,9 +125,10 @@ h2 {
   font-weight: normal;
   color: $gray-light;
 }
-h4{
+
+h4 {
   font-size: 3.5rem;
-  letter-spacing: 0.3px;;
+  letter-spacing: 0.3px;
   text-align: center;
   color: #fff;
   padding-right: 20px;

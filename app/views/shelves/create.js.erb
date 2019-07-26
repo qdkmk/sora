@@ -1,0 +1,2 @@
+$("#adddelete_form_<%=@book.id%>")
+  .replaceWith('<td id= "adddelete_form_<%=@book.id%>"><%= button_to "本棚から除く", shelf_path(tid: @book.tid, pid: @book.pid,id: shelfid?(@book.tid,@book.pid)),method: :delete, class: "btn btn-secondary", remote:true%></td>')

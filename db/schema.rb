@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_25_053554) do
+ActiveRecord::Schema.define(version: 2019_07_26_202228) do
 
   create_table "books", force: :cascade do |t|
     t.integer "pid"
@@ -31,8 +31,9 @@ ActiveRecord::Schema.define(version: 2019_07_25_053554) do
     t.integer "book_tid"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "pid"
     t.index ["book_tid"], name: "index_shelves_on_book_tid"
-    t.index ["user_id", "book_tid"], name: "index_shelves_on_user_id_and_book_tid", unique: true
+    t.index ["user_id", "book_tid", "pid"], name: "index_shelves_on_user_id_and_book_tid_and_pid", unique: true
     t.index ["user_id"], name: "index_shelves_on_user_id"
   end
 

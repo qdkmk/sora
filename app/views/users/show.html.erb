@@ -1,13 +1,10 @@
 <div class="center">
-<h1>プロフィール</h1>
+<h1><%= @user.name %>の本棚</h1>
 
-<ul>
-  <li>
-    <%= @user.name %>
-  </li>
-</ul>
-<%= link_to 'プロフィール変更', edit_user_registration_path %>
-<h2>本棚</h2>
+<% if @user == current_user %>
+  <%= link_to 'プロフィール変更', edit_user_registration_path %>
+<% end %>
+
 
 <table class="table">
   <tr>
@@ -18,12 +15,12 @@
   </tr>
 
 <% @shelves.each do |shelf|%>
-<tr data-link="<%= book_path((Book.find_by(tid: shelf.book_tid)).id) %>">
-  <td><%= (Book.find_by(tid: shelf.book_tid)).title %></td>
-  <td><%= (Book.find_by(tid: shelf.book_tid)).author %></td>
+<tr data-link="<%= book_path((Book.find_by(tid: shelf.book_tid,pid:shelf.pid)).id) %>">
+  <td><%= (Book.find_by(tid: shelf.book_tid,pid:shelf.pid)).title %></td>
+  <td><%= (Book.find_by(tid: shelf.book_tid,pid:shelf.pid)).author %></td>
 
-  <td><%=raw readtime?(Book.find_by(tid: shelf.book_tid)) %></td>
-  <td><%=raw rating?(Book.find_by(tid: shelf.book_tid)) %></td>
+  <td><%=raw readtime?(Book.find_by(tid: shelf.book_tid,pid:shelf.pid)) %></td>
+  <td><%=raw rating?(Book.find_by(tid: shelf.book_tid,pid:shelf.pid)) %></td>
 </tr>
 <% end %>
 </table>

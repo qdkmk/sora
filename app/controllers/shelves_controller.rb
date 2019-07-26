@@ -4,14 +4,17 @@ class ShelvesController < ApplicationController
   before_action :logged_in_user?, only: [:create]
 
   def create
-    @shelf = Shelf.create(user_id: current_user.id, book_tid: params[:tid])
-    redirect_back(fallback_location: root_path)
+    @book = Book.find_by(tid: params[:tid], pid: params[:pid])
+    @shelf = Shelf.create(user_id: current_user.id,
+             book_tid: params[:tid], pid: params[:pid])
+    # redirect_back(fallback_location: root_path)
   end
 
   def destroy
-    @shelf = Shelf.find_by(book_tid: params[:tid], user_id: current_user.id)
+    @book = Book.find_by(tid: params[:tid], pid: params[:pid])
+    @shelf = Shelf.find(params[:id])
     @shelf.destroy
-    redirect_back(fallback_location: root_path)
+    # redirect_back(fallback_location: root_path)
   end
 
   private
