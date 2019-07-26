@@ -7,7 +7,7 @@ class CreateShelves < ActiveRecord::Migration[5.2]
       t.timestamps
       t.index :user_id
       t.index :book_tid
-      t.index [:user_id,:book_tid], unique:true
+      t.index [:user_id, :book_tid], unique: true
     end
   end
 end
