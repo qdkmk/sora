@@ -1,23 +1,36 @@
+<div class="center">
 <h1>プロフィール</h1>
 
 <ul>
   <li>
     <%= @user.name %>
   </li>
-  <li>
-    <%= @user.email %>
-  </li>
 </ul>
 <%= link_to 'プロフィール変更', edit_user_registration_path %>
 <h2>本棚</h2>
-<% @shelves.each do |shelf|%>
-  <ul>
-    <li>
-      <%= (Book.find_by(tid: shelf.book_tid)).title %>
-      <%= (Book.find_by(tid: shelf.book_tid)).author %>
-      <%= link_to '詳細', book_path((Book.find_by(tid: shelf.book_tid)).id) %>
-    </li>
-  </ul>
-<% end %>
 
-<%= link_to('All users',:action => "index") %>
+<table class="table">
+  <tr>
+    <th>タイトル</th>
+    <th>著者</th>
+    <th>読了時間目安</th>
+    <th>人気度</th>
+  </tr>
+
+<% @shelves.each do |shelf|%>
+<tr data-link="<%= book_path((Book.find_by(tid: shelf.book_tid)).id) %>">
+  <td><%= (Book.find_by(tid: shelf.book_tid)).title %></td>
+  <td><%= (Book.find_by(tid: shelf.book_tid)).author %></td>
+
+  <td><%=raw readtime?(Book.find_by(tid: shelf.book_tid)) %></td>
+  <td><%=raw rating?(Book.find_by(tid: shelf.book_tid)) %></td>
+</tr>
+<% end %>
+</table>
+</div>
+
+<script>
+$("tr[data-link]").click(function () {
+  window.location = $(this).data("link")
+})
+</script>

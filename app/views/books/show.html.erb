@@ -1,12 +1,15 @@
+<div class="center">
 <h1><%= @book.title %></h1>
 
 <h2><%= @book.author %></h2>
 
-  <% if current_user != nil && already_shelved?(current_user,@book) %>
-    <%= button_to '本棚から除く', shelf_path,params:{tid: @book.tid}, method: :delete, class: :btn , class: :btn-primary%>
-  <% else %>
-    <%= button_to '本棚に入れる', shelves_path,params:{tid: @book.tid} , class: :btn%>
-  <% end %>
+<% if current_user != nil && already_shelved?(current_user,@book) %>
+  <%= button_to '本棚から除く', shelf_path,params:{tid: @book.tid},
+      method: :delete, class: :btn , class: ":btn-primary"%>
+<% else %>
+  <%= button_to '本棚に入れる', shelves_path,params:{tid: @book.tid} , class: ":btn-primary"%>
+<% end %>
 
 <%= link_to '青空文庫で読む',@book.cardurl%>
-<h2><%= link_to '図書一覧に戻る',books_path %></h2>
+<h2><%= link_to '図書一覧に戻る',root_path %></h2>
+</div>

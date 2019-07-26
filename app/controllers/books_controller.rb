@@ -31,7 +31,7 @@ class BooksController < ApplicationController
   end
 
   def author
-    @books = Book.where(pid: params[:pid])
+    @books = Book.where(pid: params[:pid]).paginate(page: params[:page], per_page: 30)
     @author = Book.where(pid: params[:pid]).limit(1).select(:author)
   end
 end

@@ -7,20 +7,20 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <header class="navbar navbar-fixed-top navbar-default">
+    <header class="navbar navbar-default">
       <div class="collapse navbar-collapse">
-      <nav>
-        <ul class="nav navbar-nav">
-        <% if user_signed_in? %>
-          <li><%= link_to 'Top', books_path%></li>
-          <li><%= link_to current_user.name, user_path(current_user.id)%></li>
-          <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
-        <% else %>
-          <li><%= link_to 'サインアップ', new_user_registration_path %></li>
-          <li><%= link_to 'ログイン', new_user_session_path %></li>
-        <% end %>
-        </ul>
-      </nav>
+        <nav>
+          <ul class="nav navbar-nav">
+            <% if user_signed_in? %>
+              <li><%= link_to 'Top', root_path%></li>
+              <li><%= link_to current_user.name, user_path(current_user.id)%></li>
+              <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+            <% else %>
+              <li><%= link_to 'サインアップ', new_user_registration_path %></li>
+              <li><%= link_to 'ログイン', new_user_session_path %></li>
+            <% end %>
+          </ul>
+        </nav>
       </div>
     </header>
     <div class="container">
