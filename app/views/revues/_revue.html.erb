@@ -12,6 +12,12 @@
       <span class="timestamp">
         At <%= revue.created_at %>
       </span>
+      <span>
+        <% if is_current_user?(revue.user) %>
+        <%= link_to "delete", revue, method: :delete,
+                                         data: { confirm: "You sure?" } %>
+    <% end %>
+      </span>
     </li>
   </ol>
 <%end%>

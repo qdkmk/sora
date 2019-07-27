@@ -32,6 +32,6 @@ users = User.order(:created_at).take(6)
 5.times do
   title = Faker::Lorem.sentence(3)
   content = Faker::Lorem.sentence(9)
-  users.each { |user| user.revues.create!(title: title, content: content, book_id: 2) }
-  users.each { |user| user.revues.create!(title: title, content: content, book_id: 3) }
+  users.each { |user| user.revues.create!(title: 'title', content: 'content', book_id: '2') }
+  users.each { |user| user.revues.create!(title: 'title', content: 'content', book_id: '3') }
 end

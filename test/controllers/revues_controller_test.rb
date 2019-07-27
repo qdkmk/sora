@@ -1,6 +1,8 @@
 require 'test_helper'
 
 class RevuesControllerTest < ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers
+  include ApplicationHelper
   def setup
     @revue = revues(:orange)
     @book = books(:testbook)
@@ -20,4 +22,5 @@ class RevuesControllerTest < ActionDispatch::IntegrationTest
     end
     assert_redirected_to new_user_registration_path
   end
+
 end

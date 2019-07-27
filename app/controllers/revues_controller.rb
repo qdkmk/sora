@@ -2,11 +2,12 @@
 
 class RevuesController < ApplicationController
   before_action :logged_in_user?, only: %i[create destroy]
+  before_action :correct_user,    only: :destroy
 
   def create
     @revue = current_user.revues.build(revue_params)
     if @revue.save
-      flash[:notice] = 'Revue created!'
+      flash[:notice] = '投稿を1件保存しました'
       redirect_to book_path(id: @revue.book_id)
     else
       flash[:alert] = '保存に失敗しました。'
@@ -19,16 +20,22 @@ class RevuesController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def destroy
-    @revue = current_user.revues.build(revue_params)
+    @revue.destroy
+    flash[:notice] = '投稿を1件削除しました。'
+    redirect_to request.referrer || root_path
   end
 
   private
 
   def revue_params
     params.require(:revue).permit(:content, :title, :book_id)
+  end
+
+  def correct_user
+    @revue = current_user.revues.find_by(id: params[:id])
+    redirect_to root_path if @revue.nil?
   end
 end
