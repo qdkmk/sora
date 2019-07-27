@@ -1,0 +1,15 @@
+<%= will_paginate @revues %>
+<% @revues.each do |revue|%>
+  <ol class="revues">
+    <li id="revues-<%= revue.id %>">
+      <span class="title"><%= revue.title %></span>
+      <span class="content"><%= revue.content %></span>
+      <span class="book"><%= revue.book_id %></span>
+      <span class="user"><%= link_to revue.user.name, revue.user %></span>
+      <span class="timestamp">
+        At <%= revue.created_at %>
+      </span>
+    </li>
+  </ol>
+<%end%>
+<%= will_paginate @revues %>

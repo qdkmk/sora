@@ -1,0 +1,3 @@
+class RevuesController < ApplicationController
+
+end

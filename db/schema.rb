@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_26_202228) do
+ActiveRecord::Schema.define(version: 2019_07_27_064443) do
 
   create_table "books", force: :cascade do |t|
     t.integer "pid"
@@ -24,6 +24,18 @@ ActiveRecord::Schema.define(version: 2019_07_26_202228) do
     t.integer "characount"
     t.integer "minutes"
     t.string "cardurl"
+  end
+
+  create_table "revues", force: :cascade do |t|
+    t.text "content"
+    t.integer "user_id"
+    t.integer "book_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "title"
+    t.index ["book_id", "created_at"], name: "index_revues_on_book_id_and_created_at"
+    t.index ["book_id"], name: "index_revues_on_book_id"
+    t.index ["user_id"], name: "index_revues_on_user_id"
   end
 
   create_table "shelves", force: :cascade do |t|

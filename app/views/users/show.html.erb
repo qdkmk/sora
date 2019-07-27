@@ -24,6 +24,11 @@
 </tr>
 <% end %>
 </table>
+
+<% if @user.revues.any? %>
+  <h3>Revues (<%= @user.revues.count %>)</h3>
+    <%= render 'revues/revue' %>
+<% end %>
 </div>
 
 <script>

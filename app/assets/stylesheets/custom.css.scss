@@ -133,3 +133,34 @@ h4 {
   color: #fff;
   padding-right: 20px;
 }
+
+/* revues */
+
+.revues {
+  list-style: none;
+  padding: 0;
+  li {
+    padding: 10px 0;
+    border-top: 1px solid #e8e8e8;
+  }
+  .title {
+    font-size: 2rem;
+    margin-top: 5em;
+    padding-top: 0;
+  }
+  .content {
+    display: block;
+    margin-left: 60px;
+    img {
+      display: block;
+      padding: 5px 0;
+    }
+  }
+  .timestamp,
+  .user {
+    color: $gray-light;
+    display: block;
+    margin-left: 60px;
+  }
+
+}
