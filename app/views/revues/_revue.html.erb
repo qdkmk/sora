@@ -4,7 +4,10 @@
     <li id="revues-<%= revue.id %>">
       <span class="title"><%= revue.title %></span>
       <span class="content"><%= revue.content %></span>
-      <span class="book"><%= revue.book_id %></span>
+      <span class="book">
+        <%= link_to "『#{Book.find(revue.book_id).title}』",
+          book_path(revue.book_id) %>
+      </span>
       <span class="user"><%= link_to revue.user.name, revue.user %></span>
       <span class="timestamp">
         At <%= revue.created_at %>

@@ -2,6 +2,7 @@
 
 Rails.application.routes.draw do
   resources :shelves, only: %i[create destroy]
+  resources :revues, only: [:create, :destroy, :edit]
   delete 'shelves/book_tid'
 
   get 'users/index'

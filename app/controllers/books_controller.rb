@@ -11,7 +11,8 @@ class BooksController < ApplicationController
   def show
     @book = Book.find(params[:id])
     @shelf = Shelf.new
-    @revues = Revue.where(book_id:params[:id]).paginate(page: params[:page])
+    @revues = Revue.where(book_id:params[:id]).paginate(page: params[:page],per_page: 15)
+    @revue = current_user.revues.build if user_signed_in?
   end
 
   def search

@@ -15,4 +15,11 @@ class ApplicationController < ActionController::Base
         flash[:notice] = "管理者のみ閲覧できます"
       end
     end
+
+    def logged_in_user?
+      unless user_signed_in?
+        flash[:notice] = 'Please log in.'
+        redirect_to new_user_registration_path
+      end
+    end
 end

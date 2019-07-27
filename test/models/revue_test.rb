@@ -4,7 +4,8 @@ class RevueTest < ActiveSupport::TestCase
   def setup
     @user = users(:michael)
     @book = books(:testbook)
-    @revue = @user.revues.build(title:'Lorem', content: 'Lorem ipsum', book_id: @book.id)
+    @revue = @user.revues.build(title:'Lorem', content: 'Lorem ipsum',
+                                book_id: @book.id)
   end
 
   test 'should be valid' do
@@ -41,8 +42,11 @@ class RevueTest < ActiveSupport::TestCase
   end
 
   test 'associated revues should be destroyed' do
+    @user = users(:michael)
     @user.save
-    assert_difference 'Revue.count', -1 do
+    @user.revues.create!(title: 'lorem', content: "Lorem ipsum",
+                        book_id: @book.id)
+    assert_difference 'Revue.count', -2 do
       @user.destroy
     end
   end

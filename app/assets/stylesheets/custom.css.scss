@@ -67,7 +67,32 @@
     width: 100px;
     text-align: center;
   }
+
+  /* book show page */
+  .book-show-button{
+    margin: auto;
+    background-color: #fff;
+    td{
+      padding: 15px;
+    }
+  }
 }
+
+#error_explanation {
+  color: red;
+  ul {
+    color: red;
+    margin: 0 0 30px 0;
+  }
+}
+
+.field_with_errors {
+  @extend .has-error;
+  .form-control {
+    color: $state-danger-text;
+  }
+}
+
 
 .button_to{
   font-size: 1.3rem;
@@ -134,14 +159,19 @@ h4 {
   padding-right: 20px;
 }
 
+
+
 /* revues */
 
 .revues {
+  width: 70%;
+  margin: auto;
   list-style: none;
   padding: 0;
+  text-align: left;
   li {
-    padding: 10px 0;
-    border-top: 1px solid #e8e8e8;
+    padding: 15px;
+    border: 1px solid #e8e8e8;
   }
   .title {
     font-size: 2rem;
@@ -150,17 +180,29 @@ h4 {
   }
   .content {
     display: block;
-    margin-left: 60px;
-    img {
-      display: block;
-      padding: 5px 0;
-    }
   }
   .timestamp,
   .user {
     color: $gray-light;
-    display: block;
-    margin-left: 60px;
+    text-align: right;
   }
 
+}
+
+/* revue form */
+.revue-form-wrapper{
+  background-color: #eee;
+  padding: 10px 30px 30px;
+  width: 70%;
+  margin: 60px auto;
+
+  .revue-form{
+    display: block;
+    text-align: left;
+    .text{
+      display: block;
+      margin: 0 auto;
+      width: 100%;
+    }
+  }
 }

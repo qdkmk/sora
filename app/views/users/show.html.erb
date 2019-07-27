@@ -13,15 +13,18 @@
     <th>読了時間目安</th>
     <th>人気度</th>
   </tr>
+<% if @shelves.any? %>
+  <% @shelves.each do |shelf|%>
+  <tr data-link="<%= book_path((Book.find_by(tid: shelf.book_tid,pid:shelf.pid)).id) %>">
+    <td><%= (Book.find_by(tid: shelf.book_tid,pid:shelf.pid)).title %></td>
+    <td><%= (Book.find_by(tid: shelf.book_tid,pid:shelf.pid)).author %></td>
 
-<% @shelves.each do |shelf|%>
-<tr data-link="<%= book_path((Book.find_by(tid: shelf.book_tid,pid:shelf.pid)).id) %>">
-  <td><%= (Book.find_by(tid: shelf.book_tid,pid:shelf.pid)).title %></td>
-  <td><%= (Book.find_by(tid: shelf.book_tid,pid:shelf.pid)).author %></td>
-
-  <td><%=raw readtime?(Book.find_by(tid: shelf.book_tid,pid:shelf.pid)) %></td>
-  <td><%=raw rating?(Book.find_by(tid: shelf.book_tid,pid:shelf.pid)) %></td>
-</tr>
+    <td><%=raw readtime?(Book.find_by(tid: shelf.book_tid,pid:shelf.pid)) %></td>
+    <td><%=raw rating?(Book.find_by(tid: shelf.book_tid,pid:shelf.pid)) %></td>
+  </tr>
+  <% end %>
+<% else %>
+  <td colspan="4">まだ本が１冊もありません。</td>
 <% end %>
 </table>
 
