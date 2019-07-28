@@ -2,6 +2,12 @@ ja:
   activerecord:
     errors:
       models:
+        revue:
+          attributes:
+            title:
+              blank: "が入力されていません。"
+            content:
+              blank: "が入力されていません。"
         user:
           attributes:
             email:

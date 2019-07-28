@@ -39,4 +39,5 @@ class RevuesControllerTest < ActionDispatch::IntegrationTest
     end
     assert_redirected_to root_path
   end
+
 end

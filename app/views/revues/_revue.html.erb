@@ -1,24 +1,26 @@
-<%= will_paginate @revues %>
-<% @revues.each do |revue|%>
-  <ol class="revues">
-    <li id="revues-<%= revue.id %>">
-      <span class="title"><%= revue.title %></span>
-      <span class="content"><%= revue.content %></span>
-      <span class="book">
-        <%= link_to "『#{Book.find(revue.book_id).title}』",
-          book_path(revue.book_id) %>
-      </span>
-      <span class="user"><%= link_to revue.user.name, revue.user %></span>
-      <span class="timestamp">
-        At <%= revue.created_at %>
-      </span>
-      <span>
-        <% if is_current_user?(revue.user) %>
-        <%= link_to "delete", revue, method: :delete,
-                                         data: { confirm: "You sure?" } %>
-    <% end %>
-      </span>
-    </li>
-  </ol>
+<% if !@revues.nil? %>
+  <%= will_paginate @revues %>
+  <% @revues.each do |revue|%>
+      <ol class="revues">
+        <li id="revues-<%= revue.id %>">
+          <span class="title"><%= revue.title %></span>
+          <span class="content"><%= revue.content %></span>
+          <span class="book">
+            <%= link_to "『#{Book.find(revue.book_id).title}』",
+              book_path(revue.book_id) %>
+          </span>
+          <span class="user"><%= link_to revue.user.name, revue.user %></span>
+          <span class="timestamp">
+            At <%= revue.created_at %>
+          </span>
+          <span>
+            <% if is_current_user?(revue.user) %>
+            <%= link_to "delete", revue, method: :delete,
+                                             data: { confirm: "You sure?" } %>
+        <% end %>
+          </span>
+        </li>
+      </ol>
+  <%end%>
+  <%= will_paginate @revues %>
 <%end%>
-<%= will_paginate @revues %>

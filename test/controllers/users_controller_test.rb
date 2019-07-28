@@ -41,4 +41,5 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     get '/users/index'
     assert_redirected_to root_path
   end
+
 end

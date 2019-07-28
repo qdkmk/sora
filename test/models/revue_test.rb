@@ -42,11 +42,11 @@ class RevueTest < ActiveSupport::TestCase
   end
 
   test 'associated revues should be destroyed' do
-    @user = users(:michael)
+    @user = users(:other)
     @user.save
     @user.revues.create!(title: 'lorem', content: "Lorem ipsum",
                         book_id: @book.id)
-    assert_difference 'Revue.count', -2 do
+    assert_difference 'Revue.count', -1 do
       @user.destroy
     end
   end
