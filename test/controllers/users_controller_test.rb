@@ -8,7 +8,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   #  post user_session_url
   #end
 
-  test 'could get own page' do
+  test 'get own page' do
     get '/users/sign_in'
     assert_response :success
     sign_in users(:michael)
