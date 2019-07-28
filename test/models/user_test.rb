@@ -26,4 +26,11 @@ class UserTest < ActiveSupport::TestCase
     @user.save
     assert_not duplicate_user.valid?
   end
+
+  test 'name should be unique' do
+    duplicate_user = @user.dup
+    duplicate_user.email = 'hoge@example.com',
+    @user.save
+    assert_not duplicate_user.valid?
+  end
 end

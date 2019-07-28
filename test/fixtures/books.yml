@@ -1,4 +1,5 @@
 testbook:
+  id: 1
   tid: 773
   title: こころ
   pid: 148
@@ -9,6 +10,7 @@ testbook:
   cardurl: https://www.aozora.gr.jp/cards/000148/card773.html
 
 testbook2:
+  id: 2
   tid: 301
   title: 人間失格
   pid: 35
@@ -19,6 +21,7 @@ testbook2:
   cardurl: https://www.aozora.gr.jp/cards/000035/card301.html
 
 testbook3:
+  id: 3
   tid: 789
   title: 吾輩は猫である
   pid: 148

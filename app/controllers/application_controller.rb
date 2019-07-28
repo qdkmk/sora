@@ -12,13 +12,13 @@ class ApplicationController < ActionController::Base
     def check_admin
       if !current_user.try(:admin?)
         redirect_to root_path
-        flash[:notice] = "管理者のみ閲覧できます"
+        # flash[:notice] = "管理者のみ閲覧できます"
       end
     end
 
     def logged_in_user?
       unless user_signed_in?
-        flash[:notice] = 'Please log in.'
+        flash[:notice] = 'ログインまたはユーザー登録をお願いします。'
         redirect_to new_user_registration_path
       end
     end
