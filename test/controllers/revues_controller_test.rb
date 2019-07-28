@@ -23,4 +23,5 @@ class RevuesControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to new_user_registration_path
   end
 
+
 end
