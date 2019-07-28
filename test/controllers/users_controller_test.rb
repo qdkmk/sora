@@ -2,16 +2,25 @@ require 'test_helper'
 
 class UsersControllerTest < ActionDispatch::IntegrationTest
 
-  test 'could login' do
-    get '/users/sign_in'
-    sign_in users(:michael)
-    post user_session_url
+  #setup do
+  #  get '/users/sign_in'
+  #  sign_in users(:michael)
+  #  post user_session_url
+  #end
 
-    # If you want to test that things are working correctly, uncomment this below:
-     follow_redirect!
-     assert_response :success
+  test 'could get own page' do
+    get '/users/sign_in'
+    assert_response :success
+    sign_in users(:michael)
+    get "/users/#{users(:michael).id}"
+    assert_response :success
   end
 
-
-
+  test 'should redirect to root_path after logged in' do
+    get '/users/sign_in'
+    assert_response :success
+    sign_in users(:michael)
+    post user_session_url
+    assert_redirected_to root_path
+  end
 end
