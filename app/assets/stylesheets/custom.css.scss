@@ -2,7 +2,13 @@
 @import "bootstrap";
 
 .container {}
+.about{
+  color: #333;
+  padding: 15px;
+  line-height: 20px;
+  display: block;
 
+}
 .center {
   margin: auto;
   text-align: center;
@@ -12,6 +18,54 @@
     text-decoration: none;
     color: #333;
   }
+  .search-container{
+    width: 100%;
+    margin: auto;
+    padding: 50px;
+    border: 1px solid #000;
+
+    #search{
+      height: 50px;
+      width: 70%;
+      margin: auto;
+      display: inline-block;
+    }
+    .submit{
+      width: 25%;
+      height: 50px;
+      display: inline-block;
+      font-size: 2.5rem;
+    }
+    .radio-container{
+      display: block;
+      margin: 10px;
+      display: flex;
+      justify-content: space-between;
+    }
+    input[type=radio] {
+    display: none;
+    }
+    .radio{
+      font-size: 1.5rem;
+      transition: background-color 0.2s linear;
+      position: relative;
+      display: inline-block;
+      padding: 12px;
+      margin: 5px;
+      border-radius: 8px;
+      border: 1px solid #eee;
+      vertical-align: middle;
+      cursor: pointer;
+      &:hover{
+        background-color: #eee;
+      }
+
+    }
+    input[type=radio]:checked + .radio {
+      background-color: #aaa;
+    }
+  }
+
 
   table {
     background-color: #eee;

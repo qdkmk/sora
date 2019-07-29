@@ -1,28 +1,40 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>DeviseQiita</title>
+    <title>青空文庫検索</title>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <header class="navbar navbar-default">
-      <div class="collapse navbar-collapse">
-        <nav>
+    <nav>
+      <header class="navbar  navbar-default">
+        <div class="navbar navbar-header">
+          <button type="button" class="navbar-toggle"
+                  data-toggle="collapse" data-target="#gnavi">
+            <span class="sr-only">メニュー</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+
+        <div id="gnavi" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
+            <li><%= link_to 'Top', root_path%></li>
             <% if user_signed_in? %>
-              <li><%= link_to 'Top', root_path%></li>
-              <li><%= link_to current_user.name, user_path(current_user.id)%></li>
+              <li><%= link_to 'マイページ', user_path(current_user.id)%></li>
               <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
             <% else %>
               <li><%= link_to 'サインアップ', new_user_registration_path %></li>
               <li><%= link_to 'ログイン', new_user_session_path %></li>
             <% end %>
           </ul>
-        </nav>
-      </div>
-    </header>
+        </div>
+      </header>
+    </nav>
+
     <div class="container">
       <p class="notice alert-success"><%= notice %></p>
       <p class="alert alert-dangers"><%= alert %></p>

@@ -1,27 +1,29 @@
 <div class="center">
 <h1>青空文庫検索</h1>
 
-<div class="">
+<div class="search-container">
   <%= form_with url:search_books_path, method: :get, local: true do |form|%>
   <div class="">
     <%= text_field_tag :search, params[:search], class:"form-control" %>
 
-    <%= form.radio_button(:time, "2000") %>
-    <%= form.label(:time, "5分以下", value: "2000")  %>
-    <%= form.radio_button(:time, "6000") %>
-    <%= form.label(:time, "15分以下", value: "6000")  %>
-    <%= form.radio_button(:time, "12000") %>
-    <%= form.label(:time, "30分以下", value: "12000")  %>
-    <%= form.radio_button(:time, "24000") %>
-    <%= form.label(:time, "1時間以下", value: "24000") %>
-    <%= form.radio_button(:time, "48000") %>
-    <%= form.label(:time, "2時間以下", value: "48000") %>
-    <%= form.radio_button(:time, "0") %>
-    <%= form.label(:time, "指定なし", value: "0") %>
-
     <span class="">
-      <%= form.submit 'Search', :name => nil ,class: ""%>
+      <%= form.submit '検索', :name => nil ,class: "submit"%>
     </span>
+<div class="radio-container">
+    <%= form.radio_button(:time, "2000")%>
+    <%= form.label(:time, "5分以下", value: "2000" ,class: "radio")  %>
+    <%= form.radio_button(:time, "6000") %>
+    <%= form.label(:time, "15分以下", value: "6000" ,class: "radio")  %>
+    <%= form.radio_button(:time, "12000") %>
+    <%= form.label(:time, "30分以下", value: "12000" ,class: "radio")  %>
+    <%= form.radio_button(:time, "24000") %>
+    <%= form.label(:time, "1時間以下", value: "24000" ,class: "radio") %>
+    <%= form.radio_button(:time, "48000") %>
+    <%= form.label(:time, "2時間以下", value: "48000" ,class: "radio") %>
+    <%= form.radio_button(:time, "0") %>
+    <%= form.label(:time, "指定なし", value: "0" ,class: "radio") %>
+</div>
+
   <% end %>
 
 </div>
@@ -29,3 +31,24 @@
 
 <%= render :partial => "shared/allbooks" %>
 </div>
+
+<script>
+  var mySwiper = new Swiper('.swiper-container', {
+    autoplay: {
+      delay: 3000,
+      stopOnLastSlide: false,
+      disableOnInteraction: false,
+      reverseDirection: false
+    },
+    pagination: {
+  		el: '.swiper-pagination',
+  		type: 'bullets',
+  		clickable: true
+	  },
+    loop: true,
+    navigation: {
+  		nextEl: '.swiper-button-next',
+  		prevEl: '.swiper-button-prev'
+  	},
+  })
+</script>
