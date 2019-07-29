@@ -40,12 +40,12 @@ ActiveRecord::Schema.define(version: 2019_07_27_064443) do
 
   create_table "shelves", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "book_tid"
+    t.integer "tid"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "pid"
-    t.index ["book_tid"], name: "index_shelves_on_book_tid"
-    t.index ["user_id", "book_tid", "pid"], name: "index_shelves_on_user_id_and_book_tid_and_pid", unique: true
+    t.index ["tid"], name: "index_shelves_on_tid"
+    t.index ["user_id", "tid", "pid"], name: "index_shelves_on_user_id_and_tid_and_pid", unique: true
     t.index ["user_id"], name: "index_shelves_on_user_id"
   end
 

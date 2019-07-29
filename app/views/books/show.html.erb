@@ -6,21 +6,33 @@
   <table class="book-show-button">
     <tr>
       <td id="adddelete_form_<%=@book.id%>">
-        <% if current_user != nil && already_shelved?(current_user,@book) %>
-          <%= button_to '本棚から除く', shelf_path(tid: @book.tid,pid: @book.pid,id: shelfid?(@book.tid,@book.pid)), method: :delete, class: "btn btn-secondary", remote:true%>
-        <% else %>
-          <%= button_to '本棚に入れる', shelves_path,params:{tid: @book.tid, pid:@book.pid}, class: "btn btn-primary", remote:true%>
+        <% if user_signed_in? && !current_user.id.nil? %>
+          <% if already_shelved?(current_user,@book)%>
+            <%= button_to '本棚から除く', shelf_path(shelfid?(@book.tid,@book.pid)),
+                                        method: :delete,
+                                        class: "btn btn-secondary", remote:true%>
+          <% else %>
+            <%= button_to '本棚に入れる', shelves_path,
+                                        params: { shelf: { user_id: current_user.id,
+                                                           tid: @book.tid,
+                                                           pid: @book.pid } },
+                                        class: "btn btn-primary", remote:true%>
+          <% end %>
         <% end %>
-
       </td>
-      <td><%= button_to 'Amazonで検索する', "https://www.amazon.co.jp/s?k=#{URI.encode(@book.title + @book.author)}&i=stripbooks", class:"btn btn-primary",form: {target: '_blank'}%></td>
-      <td><%= button_to '青空文庫で読む', @book.cardurl, class:"btn btn-primary",form: {target: '_blank'}%></td>
+      <td><%= button_to 'Amazonで検索する',
+                        "https://www.amazon.co.jp/s?k=#{URI.encode(@book.title + @book.author)}&i=stripbooks", class:"btn btn-primary",form: {target: '_blank'}%></td>
+      <td><%= button_to '青空文庫で読む', @book.cardurl,
+                                        class:"btn btn-primary",
+                                        form: {target: '_blank'}%></td>
     </tr>
   </table>
-  <%= render 'shared/revue_form' %>
+  <% if !@revue.nil? %>
+    <%= render 'shared/revue_form' %>
+  <% end %>
 
-    <h3>感想一覧 (<%= @revues.count %>件)</h3>
-      <%= render 'revues/revue' %>
+  <h3>感想一覧 (<%= @revues.count %>件)</h3>
+  <%= render 'revues/revue' %>
 
   <h2><%= link_to '図書一覧に戻る', root_path %></h2>
 </div>

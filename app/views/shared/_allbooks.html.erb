@@ -26,15 +26,19 @@
       </td>
 
       <td id= "adddelete_form_<%=book.id%>">
-      <% if current_user != nil && already_shelved?(current_user,book) %>
-        <%= button_to '本棚から除く',
-            shelf_path(tid: book.tid,pid: book.pid,id: shelfid?(book.tid,book.pid)),
-            method: :delete, class: "btn btn-secondary",
-            remote:true%>
-      <% else %>
-        <%= button_to '本棚に入れる', shelves_path,params:{tid: book.tid, pid:book.pid},
-            class: "btn btn-primary", remote:true%>
-      <% end %>
+        <% if user_signed_in? && !current_user.id.nil? %>
+          <% if already_shelved?(current_user,book)%>
+            <%= button_to '本棚から除く', shelf_path(shelfid?(book.tid,book.pid)),
+                                        method: :delete,
+                                        class: "btn btn-secondary", remote:true%>
+          <% else %>
+            <%= button_to '本棚に入れる', shelves_path,
+                                        params: { shelf: { user_id: current_user.id,
+                                                           tid: book.tid,
+                                                           pid: book.pid } },
+                                        class: "btn btn-primary", remote:true%>
+          <% end %>
+        <% end %>
       </td>
     </tr>
   <% end %>

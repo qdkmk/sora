@@ -44,5 +44,5 @@ def set_book
 end
 
 def already_shelved?(user, book)
-  user.shelves.exists?(book_tid: book.tid)
+  user.shelves.exists?(tid: book.tid)
 end

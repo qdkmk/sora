@@ -2,8 +2,10 @@
 
 one:
   user_id: 1
-  book_tid: 1
+  tid: 1
+  pid: 1
 
 two:
   user_id: 1
-  book_tid: 2
+  tid: 2
+  pid: 2
