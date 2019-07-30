@@ -12,7 +12,7 @@
 .center {
   margin: auto;
   text-align: center;
-  width: 80%;
+  width: 100%;
 
   a {
     text-decoration: none;
@@ -21,7 +21,7 @@
   .search-container{
     width: 100%;
     margin: auto;
-    padding: 50px;
+    padding: 10px;
     border: 1px solid #000;
 
     #search{
@@ -34,13 +34,14 @@
       width: 25%;
       height: 50px;
       display: inline-block;
-      font-size: 2.5rem;
+      font-size: 2rem;
     }
     .radio-container{
       display: block;
       margin: 10px;
       display: flex;
       justify-content: space-between;
+      flex-wrap: wrap;
     }
     input[type=radio] {
     display: none;
@@ -51,6 +52,7 @@
       position: relative;
       display: inline-block;
       padding: 12px;
+      min-width: 100px;
       margin: 5px;
       border-radius: 8px;
       border: 1px solid #eee;
@@ -70,6 +72,7 @@
   table {
     background-color: #eee;
     border-radius: 2rem;
+    width: 100%;
   }
 
   .table th {
@@ -92,33 +95,38 @@
   }
 
   .table th {
-    padding: 15px;
   }
 
   .table td {
-    font-size: 3rem;
+    font-size: 1rem;
     letter-spacing: 0.3px;
     text-align: left;
-    padding: 15px 20px 15px 15px;
+    min-width: 50px;
+
 
     &.title {
-      font-size: 3.3rem;
-      width: 60%;
+      font-size: 1.5rem;
+      min-width: 80px;
     }
 
     &.author {
-      font-size: 2rem;
-      width: 20%;
+      font-size: 1rem;
+    }
+    .btn-primary{
+      font-size: 1rem;
+      padding: 5px;
+      display: block;
+      white-space: pre-line;
+      word-break: break-all;
     }
   }
 
   .table .tag {
-    font-size: 1.5rem;
+    font-size: 1rem;
     color: #364e96;
     border: solid 3px #364e96;
     padding: 0.5em;
     border-radius: 0.5em;
-    width: 100px;
     text-align: center;
   }
 
@@ -136,7 +144,6 @@
   color: red;
   ul {
     color: red;
-    margin: 0 0 30px 0;
   }
 }
 
@@ -156,15 +163,14 @@
   margin: 0 auto;
 
   &.input-group {
-    width: 80%;
-    font-size: 3rem;
+    font-size: 1rem;
   }
 }
 
 .star-rating {
   position: relative;
   display: inline-block;
-  font-size: 3rem;
+  font-size: 1rem;
 }
 
 .star-rating .star-rating-item {
@@ -173,12 +179,12 @@
 }
 
 .star-rating .star-rating-item:before {
-  content: "★★★★★";
+  content: "★★★";
   color: #ffcc33;
 }
 
 .star-rating:after {
-  content: "★★★★★";
+  content: "★★★";
   color: #ccc;
 }
 
@@ -192,6 +198,7 @@ h6 {}
 h1 {
   font-size: 3em;
   letter-spacing: 2px;
+  margin-top: 10px;
   margin-bottom: 30px;
   text-align: center;
 }

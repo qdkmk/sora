@@ -1,11 +1,11 @@
-<%= will_paginate @books, renderer: BootstrapPagination::Rails%>
+<%= will_paginate @books, inner_window: 1, renderer: BootstrapPagination::Rails%>
 <table class="table">
   <tr>
     <th>タイトル</th>
     <th>著者</th>
-    <th>読了時間目安</th>
+    <th>読了目安</th>
     <th>人気度</th>
-    <th></th>
+    <th>本棚</th>
   </tr>
 
   <% @books.each do |book|%>
@@ -18,11 +18,11 @@
        class="author"><%= book.author %>
      </td>
 
-      <td data-link="<%= book_path(book.id) %>">
-        <%=raw readtime?(book) %>
+      <td data-link="<%= book_path(book.id) %>"
+        class="time"><%=raw readtime?(book) %>
       </td>
-      <td data-link="<%= book_path(book.id) %>">
-        <%=raw rating?(book) %>
+      <td data-link="<%= book_path(book.id) %>"
+        class="rate"><%=raw rating?(book) %>
       </td>
 
       <td id= "adddelete_form_<%=book.id%>">
@@ -38,12 +38,14 @@
                                                            pid: book.pid } },
                                         class: "btn btn-primary", remote:true%>
           <% end %>
+        <% else %>
+          <%= button_to '本棚に入れる', shelves_path,class: "btn btn-primary", remote:true%>
         <% end %>
       </td>
     </tr>
   <% end %>
 </table>
-<%= will_paginate @books, renderer: BootstrapPagination::Rails%>
+<%= will_paginate @books, inner_window: 1, renderer: BootstrapPagination::Rails%>
 
 <script>
 $("td[data-link]").click(function () {

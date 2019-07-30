@@ -4,19 +4,19 @@ module BooksHelper
   def readtime?(book)
     unless book.characount.nil?
       if book.characount / 400 < 5
-        '<div class="tag">5分以下</div>'
+        '<div class="tag">〜5分</div>'
       elsif book.characount / 400 < 15
-        '<div class="tag">15分以下</div>'
+        '<div class="tag">〜15分</div>'
       elsif book.characount / 400 < 30
-        '<div class="tag">30分以下</div>'
+        '<div class="tag">〜30分</div>'
       elsif book.characount / 400 / 60 < 1
-        '<div class="tag">1時間以下</div>'
+        '<div class="tag">〜1時間</div>'
       elsif book.characount / 400 / 60 < 2
-        '<div class="tag">2時間以下</div>'
+        '<div class="tag">〜2時間</div>'
       elsif book.characount / 400 / 60 < 3
-        '<div class="tag">3時間以下</div>'
+        '<div class="tag">〜3時間</div>'
       else
-        '<div class="tag">3時間以上</div>'
+        '<div class="tag">3時間〜</div>'
       end
     end
   end

@@ -21,13 +21,11 @@ class BooksController < ApplicationController
                           "%#{params[:search]}%", "%#{params[:search]}%")
                    .order('ranking ASC, characount DESC')
                    .paginate(page: params[:page], per_page: 30)
-                   .paginate(page: params[:page], per_page: 30)
     else
       @books = Book.where('(title LIKE ? OR author LIKE ?) AND characount < ?',
                           "%#{params[:search]}%", "%#{params[:search]}%",
                           params[:time].to_i.to_s)
                    .order('characount DESC ,ranking ASC')
-                   .paginate(page: params[:page], per_page: 30)
                    .paginate(page: params[:page], per_page: 30)
     end
   end
