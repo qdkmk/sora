@@ -1,7 +1,7 @@
 ja:
   will_paginate:
-    previous_label: 前
-    next_label: 次
+    previous_label: 前へ
+    next_label: 次へ
   activerecord:
     errors:
       models:

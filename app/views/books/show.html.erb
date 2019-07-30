@@ -2,7 +2,7 @@
   <h1><%= @book.title %></h1>
 
   <h2><%= link_to (@book.author), author_books_path(pid: @book.pid) %></h2>
-
+<div class="button_list>
   <table class="book-show-button">
     <tr>
       <td id="adddelete_form_<%=@book.id%>">
@@ -20,13 +20,18 @@
           <% end %>
         <% end %>
       </td>
-      <td><%= button_to 'Amazonで検索する',
-                        "https://www.amazon.co.jp/s?k=#{URI.encode(@book.title + @book.author)}&i=stripbooks", class:"btn btn-primary",form: {target: '_blank'}%></td>
-      <td><%= button_to '青空文庫で読む', @book.cardurl,
-                                        class:"btn btn-primary",
-                                        form: {target: '_blank'}%></td>
     </tr>
   </table>
+</div>
+    <div class="button_list">
+      <%= button_to 'Amazonで検索する',
+                      "https://www.amazon.co.jp/s?k=#{URI.encode(@book.title + @book.author)}&i=stripbooks", class:"btn btn-primary",form: {target: '_blank'}%>
+    </div>
+    <div class="button_list">
+      <%= button_to '青空文庫で読む', @book.cardurl,
+                                      class:"btn btn-primary",
+                                      form: {target: '_blank'}%>
+    </div>
   <% if !@revue.nil? %>
     <%= render 'shared/revue_form' %>
   <% end %>

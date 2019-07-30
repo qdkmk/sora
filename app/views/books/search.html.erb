@@ -1,13 +1,12 @@
 <div class="center">
-<h1>青空文庫検索</h1>
-
+      <p>青空文庫専門の書評サイトです。</p>
 <div class="search-container">
   <%= form_with url:search_books_path, method: :get, local: true do |form|%>
 
     <%= text_field_tag :search, params[:search], class:"form-control" %>
 
     <span class="">
-      <%= form.submit '検索', :name => nil ,class: "submit"%>
+      <%= form.submit '検索', :name => nil ,class: "submit btn-primary"%>
     </span>
 <div class="radio-container">
     <%= form.radio_button(:time, "2000",checked:("2000" ==params[:time]))%>
