@@ -5,7 +5,7 @@
     <th>著者</th>
     <th>読了目安</th>
     <th>人気度</th>
-    <th>本棚</th>
+    <th class="shelf-th">本棚</th>
   </tr>
 
   <% @books.each do |book|%>
@@ -25,7 +25,7 @@
         class="rate"><%=raw rating?(book) %>
       </td>
 
-      <td id= "adddelete_form_<%=book.id%>">
+      <td class="shelf-td", id= "adddelete_form_<%=book.id%>">
         <% if user_signed_in? && !current_user.id.nil? %>
           <% if already_shelved?(current_user,book)%>
             <%= button_to '本棚から除く', shelf_path(shelfid?(book.tid,book.pid)),

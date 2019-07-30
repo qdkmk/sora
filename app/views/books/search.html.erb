@@ -10,17 +10,17 @@
       <%= form.submit '検索', :name => nil ,class: "submit"%>
     </span>
 <div class="radio-container">
-    <%= form.radio_button(:time, "2000")%>
+    <%= form.radio_button(:time, "2000",checked:("2000" ==params[:time]))%>
     <%= form.label(:time, "〜5分", value: "2000" ,class: "radio")  %>
-    <%= form.radio_button(:time, "6000") %>
+    <%= form.radio_button(:time, "6000",checked:("6000" ==params[:time])) %>
     <%= form.label(:time, "〜15分", value: "6000" ,class: "radio")  %>
-    <%= form.radio_button(:time, "12000") %>
+    <%= form.radio_button(:time, "12000",checked:("12000" ==params[:time])) %>
     <%= form.label(:time, "〜30分", value: "12000" ,class: "radio")  %>
-    <%= form.radio_button(:time, "24000") %>
+    <%= form.radio_button(:time, "24000",checked:("24000" ==params[:time])) %>
     <%= form.label(:time, "〜1時間", value: "24000" ,class: "radio") %>
-    <%= form.radio_button(:time, "48000") %>
+    <%= form.radio_button(:time, "48000",checked:("48000" ==params[:time])) %>
     <%= form.label(:time, "〜2時間", value: "48000" ,class: "radio") %>
-    <%= form.radio_button(:time, "0") %>
+    <%= form.radio_button(:time, "0",checked:("0" ==params[:time])) %>
     <%= form.label(:time, "指定なし", value: "0" ,class: "radio") %>
 </div>
 
