@@ -11,18 +11,18 @@
   <% @books.each do |book|%>
 
     <tr>
-      <td data-link="<%= book_path(book.id) %>"
-       class="title"><%= book.title %>
+      <td data-link="<%= book_path(book.id) %>" class="title">
+        <%= book.title %>
      </td>
-      <td data-link="<%= book_path(book.id) %>"
-       class="author"><%= book.author %>
+      <td data-link="<%= book_path(book.id) %>" class="author">
+        <%= book.author %>
      </td>
 
-      <td data-link="<%= book_path(book.id) %>"
-        class="time"><%=raw readtime?(book) %>
+      <td data-link="<%= book_path(book.id) %>" class="time">
+        <%=raw readtime?(book) %>
       </td>
-      <td data-link="<%= book_path(book.id) %>"
-        class="rate"><%=raw rating?(book) %>
+      <td data-link="<%= book_path(book.id) %>"  class="rate">
+        <%=raw rating?(book) %>
       </td>
 
       <td class="shelf-td", id= "adddelete_form_<%=book.id%>">
@@ -39,7 +39,8 @@
                                         class: "btn btn-primary", remote:true%>
           <% end %>
         <% else %>
-          <%= button_to '本棚に入れる', shelves_path,class: "btn btn-primary", remote:true%>
+          <%= button_to '本棚に入れる', new_user_session_path,
+                                      method: :get ,class: "btn btn-primary"%>
         <% end %>
       </td>
     </tr>

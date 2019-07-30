@@ -30,6 +30,7 @@
     background-color: #eee;
   }
 }
+/*search top*/
 
 .container {}
 .about{
@@ -54,12 +55,18 @@
     padding: 10px;
     border: 1px solid #eee;
     border-radius: 0.5rem;
+    @include pc {
+      padding: 30px;
+    };
 
     #search{
       height: 50px;
       width: 70%;
       margin: auto;
       display: inline-block;
+      @include pc {
+        width: 60%;
+      };
     }
     .submit{
       width: 25%;
@@ -67,6 +74,9 @@
       display: inline-block;
       font-size: 2rem;
       border-radius: 0.3rem;
+      @include pc {
+        width: 15%;
+      };
     }
     .radio-container{
       display: block;
@@ -74,6 +84,10 @@
       display: flex;
       justify-content: space-between;
       flex-wrap: wrap;
+      @include pc {
+        width: 70%;
+        margin: auto;
+      };
     }
     input[type=radio] {
     display: none;
@@ -87,7 +101,7 @@
       min-width: 110px;
       margin: 5px;
       border-radius: 8px;
-      border: 1px solid #eee;
+      border: 1px solid #ddd;
       vertical-align: middle;
       cursor: pointer;
       &:hover{
@@ -116,6 +130,9 @@
     padding: 0.3rem;
     border-radius: 0.3rem;
     text-align: center;
+    @include pc {
+      font-size: 1.5rem;
+    };
   }
   .table th {
     background-color: #777;
@@ -159,6 +176,20 @@
       min-width: 80px;
       padding-top: 20px;
       padding-bottom: 20px;
+      @include pc {
+        font-size: 3.5rem;
+        padding: 15px;
+      };
+    }
+    &.author{
+      @include pc {
+        font-size: 2rem;
+      };
+    }
+    &.time{
+      @include pc {
+        font-size: 1.5rem;
+      };
     }
 
     &.shelf-td{
@@ -166,7 +197,7 @@
         display: none;
       };
       @include pc {
-        display: block;
+        display: table-cell;
       };
     }
 
@@ -174,10 +205,12 @@
       @include sp {
         display: none;
       };
+      @include pc {
         padding: 5px;
         display: block;
         white-space: pre-line;
         word-break: break-all;
+      };
     }
   }
 
@@ -187,6 +220,7 @@
     background-color: #fff;
     td{
       padding: 15px;
+
     }
   }
 }
@@ -222,6 +256,9 @@
   position: relative;
   display: inline-block;
   font-size: 1rem;
+  @include pc {
+    font-size: 2rem;
+  };
 }
 
 .star-rating .star-rating-item {
@@ -284,6 +321,9 @@ h4 {
   list-style: none;
   padding: 0;
   text-align: left;
+  @include pc {
+    width: 50%;
+  };
   li {
     padding: 15px;
     border: 1px solid #e8e8e8;
@@ -292,9 +332,11 @@ h4 {
     font-size: 2rem;
     margin-top: 5em;
     padding-top: 0;
+    word-wrap: break-word;
   }
   .content {
     display: block;
+    word-wrap: break-word;
   }
   .timestamp,
   .user {
@@ -307,8 +349,14 @@ h4 {
 
  .button_list{
    margin: 10px auto;
+   .book-show-button td{
+     padding: 0px;
+   }
    .btn{
      width: 100%;
+     @include pc {
+       width: 30%;
+     };
    }
 
  }
@@ -320,6 +368,10 @@ h4 {
   padding: 10px 30px 30px;
   width: 100%;
   margin: auto;
+  @include pc {
+    width: 50%;
+    margin-top: 20px;
+  };
 
   .revue-form{
     display: block;

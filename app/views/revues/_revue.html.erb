@@ -4,14 +4,18 @@
       <ol class="revues">
         <li id="revues-<%= revue.id %>">
           <span class="title"><%= revue.title %></span>
-          <span class="content"><%= revue.content %></span>
+          <p class="content"><%= revue.content %></p>
           <span class="book">
             <%= link_to "『#{Book.find(revue.book_id).title}』",
               book_path(revue.book_id) %>
           </span>
-          <span class="user"><%= link_to revue.user.name, revue.user %></span>
+          <span class="user">
+            <%= link_to revue.user.name, revue.user %>さんの投稿
+          </span>
           <span class="timestamp">
-            At <%= revue.created_at %>
+            （<%= revue.created_at.year %>年
+            <%= revue.created_at.month %>月
+            <%= revue.created_at.day %>日）
           </span>
           <span>
             <% if is_current_user?(revue.user) %>

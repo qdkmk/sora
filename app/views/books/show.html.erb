@@ -2,10 +2,10 @@
   <h1><%= @book.title %></h1>
 
   <h2><%= link_to (@book.author), author_books_path(pid: @book.pid) %></h2>
-<div class="button_list>
+<div class="button_list">
   <table class="book-show-button">
     <tr>
-      <td id="adddelete_form_<%=@book.id%>">
+      <td class="shelf-td", id= "adddelete_form_<%=@book.id%>">
         <% if user_signed_in? && !current_user.id.nil? %>
           <% if already_shelved?(current_user,@book)%>
             <%= button_to '本棚から除く', shelf_path(shelfid?(@book.tid,@book.pid)),
@@ -18,6 +18,9 @@
                                                            pid: @book.pid } },
                                         class: "btn btn-primary", remote:true%>
           <% end %>
+        <% else %>
+          <%= button_to '本棚に入れる', new_user_session_path,
+                                      method: :get ,class: "btn btn-primary"%>
         <% end %>
       </td>
     </tr>
