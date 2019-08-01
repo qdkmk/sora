@@ -1,12 +1,10 @@
 <div class="center">
 <h1><%= @user.name %>の本棚</h1>
 
-<% if @user == current_user %>
-  <%= link_to 'プロフィール変更', edit_user_registration_path %>
-<% end %>
 
 
-<table class="table">
+
+<table class="table user_table">
   <tr>
     <th>タイトル</th>
     <th>著者</th>
@@ -16,20 +14,20 @@
 <% if @shelves.any? %>
   <% @shelves.each do |shelf|%>
   <tr data-link="<%= book_path((Book.find_by(tid: shelf.tid,pid:shelf.pid)).id) %>">
-    <td><%= (Book.find_by(tid: shelf.tid,pid:shelf.pid)).title %></td>
-    <td><%= (Book.find_by(tid: shelf.tid,pid:shelf.pid)).author %></td>
+    <td class="title"><%= (Book.find_by(tid: shelf.tid,pid:shelf.pid)).title %></td>
+    <td class="author"><%= (Book.find_by(tid: shelf.tid,pid:shelf.pid)).author %></td>
 
-    <td><%=raw readtime?(Book.find_by(tid: shelf.tid,pid:shelf.pid)) %></td>
-    <td><%=raw rating?(Book.find_by(tid: shelf.tid,pid:shelf.pid)) %></td>
+    <td class="time"><%=raw readtime?(Book.find_by(tid: shelf.tid,pid:shelf.pid)) %></td>
+    <td class="rate"><%=raw rating?(Book.find_by(tid: shelf.tid,pid:shelf.pid)) %></td>
   </tr>
   <% end %>
 <% else %>
-  <td colspan="4">まだ本が１冊もありません。</td>
+  <td colspan="4"><p>まだ本が１冊もありません。</p></td>
 <% end %>
 </table>
 
 <% if @user.revues.any? %>
-  <h3>Revues (<%= @user.revues.count %>)</h3>
+  <h3>Revues (<%= @user.revues.count %>件)</h3>
     <%= render 'revues/revue' %>
 <% end %>
 </div>

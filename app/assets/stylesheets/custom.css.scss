@@ -13,13 +13,35 @@
 }
 
 /*sign up*/
+hr{
+    background-color:#aaa;
+    height:1px;
+}
 .sign_inup{
   margin: auto;
   text-align: center;
-  max-width: 200px;
+  max-width: 380px;
   .field{
     text-align: left;
     width: 100%;
+    margin-bottom: 5px;
+  }
+  .devise_links{
+    margin-top: 20px;
+    padding: 15px 15px 10px;
+    text-align: left;
+    width: 100%;
+    background-color: #eee;
+  }
+}
+/*edit user*/
+.edit_user{
+  margin: auto;
+  text-align: center;
+  max-width: 380px;
+  .field{
+    text-align: left;
+    width: 90%;
     margin-bottom: 5px;
   }
   .devise_links{
@@ -30,6 +52,17 @@
     background-color: #eee;
   }
 }
+.edit_field{
+  background-color: #eee;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+.edit_submit{
+  background-color: #eee;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
 /*search top*/
 
 .container {}
@@ -382,4 +415,10 @@ h4 {
       width: 100%;
     }
   }
+}
+
+/*user show*/
+.center table.user_table{
+  width: 70%;
+  margin: auto;
 }
