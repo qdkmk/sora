@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ShelvesController < ApplicationController
-  before_action :logged_in_user?, only: [:create,:destroy]
+  #before_action :logged_in_user?, only: [:create,:destroy]
   #before_action :shelf_params, only: [:create]
   before_action :set_shelf, only: [:destroy]
 
