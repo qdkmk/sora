@@ -1,6 +1,5 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
-
 @mixin pc($width: 769px) {
   @media screen and (min-width: $width) {
     @content;
@@ -11,22 +10,24 @@
     @content;
   }
 }
-
 /*sign up*/
-hr{
-    background-color:#aaa;
-    height:1px;
+hr {
+  background-color: #aaa;
+  height: 1px;
 }
-.sign_inup{
+
+.sign_inup {
   margin: auto;
   text-align: center;
   max-width: 380px;
-  .field{
+
+  .field {
     text-align: left;
     width: 100%;
     margin-bottom: 5px;
   }
-  .devise_links{
+
+  .devise_links {
     margin-top: 20px;
     padding: 15px 15px 10px;
     text-align: left;
@@ -35,16 +36,18 @@ hr{
   }
 }
 /*edit user*/
-.edit_user{
+.edit_user {
   margin: auto;
   text-align: center;
   max-width: 380px;
-  .field{
+
+  .field {
     text-align: left;
     width: 90%;
     margin-bottom: 5px;
   }
-  .devise_links{
+
+  .devise_links {
     margin-top: 10px;
     padding: 10px;
     text-align: left;
@@ -52,41 +55,44 @@ hr{
     background-color: #eee;
   }
 }
-.edit_field{
-  background-color: #eee;
-  padding: 15px;
-  margin-bottom: 20px;
-}
-.edit_submit{
+
+.edit_field {
   background-color: #eee;
   padding: 15px;
   margin-bottom: 20px;
 }
 
+.edit_submit {
+  background-color: #eee;
+  padding: 15px;
+  margin-bottom: 20px;
+}
 /*search top*/
-
 .container {}
-.about{
+
+.about {
   color: #333;
   padding: 15px;
   line-height: 20px;
   display: block;
-
 }
+
 .center {
   margin: auto;
   text-align: center;
   width: 100%;
-  .top-image{
-      width: 100%;
-      height: auto;
+
+  .top-image {
+    width: 100%;
+    height: auto;
   }
 
   a {
     text-decoration: none;
     color: #333;
   }
-  .search-container{
+
+  .search-container {
     width: 100%;
     margin: auto;
     padding: 10px;
@@ -96,7 +102,7 @@ hr{
       padding: 30px;
     };
 
-    #search{
+    #search {
       height: 50px;
       width: 70%;
       margin: auto;
@@ -105,7 +111,8 @@ hr{
         width: 60%;
       };
     }
-    .submit{
+
+    .submit {
       width: 25%;
       height: 50px;
       display: inline-block;
@@ -115,7 +122,8 @@ hr{
         width: 15%;
       };
     }
-    .radio-container{
+
+    .radio-container {
       display: block;
       margin: 10px;
       display: flex;
@@ -126,10 +134,12 @@ hr{
         margin: auto;
       };
     }
+
     input[type=radio] {
-    display: none;
+      display: none;
     }
-    .radio{
+
+    .radio {
       font-size: 1.5rem;
       transition: background-color 0.2s linear;
       position: relative;
@@ -141,24 +151,23 @@ hr{
       border: 1px solid #ddd;
       vertical-align: middle;
       cursor: pointer;
-      &:hover{
+
+      &:hover {
         background-color: #eee;
       }
-
     }
+
     input[type=radio]:checked + .radio {
       background-color: #337ab7;
       color: #fff;
     }
   }
 
-
   table {
     background-color: #eee;
     //border-radius: 2rem;
     width: 100%;
   }
-
 
   .table .tag {
     font-size: 1rem;
@@ -171,12 +180,12 @@ hr{
       font-size: 1.5rem;
     };
   }
+
   .table th {
     background-color: #777;
     color: #fff;
     border: 0;
     vertical-align: middle;
-
 
     &:first-child {
       //border-radius: 2rem 0 0 0;
@@ -185,7 +194,8 @@ hr{
     &:last-child {
       //border-radius: 0 2rem 0 0;
     }
-    &.shelf-th{
+
+    &.shelf-th {
       @include sp {
         display: none;
       };
@@ -199,7 +209,6 @@ hr{
     cursor: pointer;
     background-color: #fff;
   }
-
 
   .table td {
     font-size: 1.5rem;
@@ -218,18 +227,20 @@ hr{
         padding: 15px;
       };
     }
-    &.author{
+
+    &.author {
       @include pc {
         font-size: 2rem;
       };
     }
-    &.time{
+
+    &.time {
       @include pc {
         font-size: 1.5rem;
       };
     }
 
-    &.shelf-td{
+    &.shelf-td {
       @include sp {
         display: none;
       };
@@ -238,7 +249,7 @@ hr{
       };
     }
 
-    .btn-primary{
+    .btn-primary {
       @include sp {
         display: none;
       };
@@ -250,20 +261,20 @@ hr{
       };
     }
   }
-
   /* book show page */
-  .book-show-button{
+  .book-show-button {
     margin: auto;
     background-color: #fff;
-    td{
-      padding: 15px;
 
+    td {
+      padding: 15px;
     }
   }
 }
 
 #error_explanation {
   color: red;
+
   ul {
     color: red;
   }
@@ -271,13 +282,13 @@ hr{
 
 .field_with_errors {
   @extend .has-error;
+
   .form-control {
     color: $state-danger-text;
   }
 }
 
-
-.button_to{
+.button_to {
   font-size: 1.3rem;
 }
 
@@ -344,14 +355,12 @@ h4 {
   color: #fff;
   padding-right: 20px;
 }
-.alert{
+
+.alert {
   padding: 0;
   margin: 0;
 }
-
-
 /* revues */
-
 .revues {
   width: 100%;
   margin: auto;
@@ -361,46 +370,47 @@ h4 {
   @include pc {
     width: 50%;
   };
+
   li {
     padding: 15px;
     border: 1px solid #e8e8e8;
   }
+
   .title {
     font-size: 2rem;
     margin-top: 5em;
     padding-top: 0;
     word-wrap: break-word;
   }
+
   .content {
     display: block;
     word-wrap: break-word;
   }
+
   .timestamp,
   .user {
     color: $gray-light;
     text-align: right;
   }
-
 }
 /*book show page*/
+.button_list {
+  margin: 10px auto;
 
- .button_list{
-   margin: 10px auto;
-   .book-show-button td{
-     padding: 0px;
-   }
-   .btn{
-     width: 100%;
-     @include pc {
-       width: 30%;
-     };
-   }
+  .book-show-button td {
+    padding: 0;
+  }
 
- }
-
-
+  .btn {
+    width: 100%;
+    @include pc {
+      width: 30%;
+    };
+  }
+}
 /* revue form */
-.revue-form-wrapper{
+.revue-form-wrapper {
   background-color: #eee;
   padding: 10px 30px 30px;
   width: 100%;
@@ -410,19 +420,19 @@ h4 {
     margin-top: 20px;
   };
 
-  .revue-form{
+  .revue-form {
     display: block;
     text-align: left;
-    .text{
+
+    .text {
       display: block;
       margin: 0 auto;
       width: 100%;
     }
   }
 }
-
 /*user show*/
-.center table.user_table{
+.center table.user_table {
   width: 70%;
   margin: auto;
 }

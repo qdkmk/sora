@@ -3,7 +3,12 @@
 require 'csv'
 
 # csv_data = CSV.read("db/list_person_all_utf8e.csv", headers: true)
-csv_data = CSV.read('db/merge0725.csv', headers: true)
+
+# original data
+# csv_data = CSV.read('db/merge0725.csv', headers: true)
+
+# for heroku postgresql limit
+csv_data = CSV.read('db/merge0725-min.csv', headers: true)
 csv_data.each do |data|
   Book.create!(data.to_hash)
 end
