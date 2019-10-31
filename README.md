@@ -1,24 +1,13 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Railsの勉強で作成した青空文庫専用の書評投稿サイトです。
 
-Things you may want to cover:
+概要
+◆青空文庫専門の書評サービスサイト
+　url：https://mighty-temple-89201.herokuapp.com/
 
-* Ruby version
+◆アカウントがなくても読了時間別で青空文庫を検索可能
+　※トップページで提供。時間別の検索は上位500位までの書籍のみ
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+◆アカウント作成後、自分の本棚・レビュー投稿が可能。
+  マイページで確認できます。
