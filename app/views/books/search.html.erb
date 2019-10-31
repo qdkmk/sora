@@ -1,5 +1,5 @@
 <div class="center">
-      <p>青空文庫専門の書評サイトです。</p>
+  <%= image_tag 'sora.png', class: "top-image"%>
 <div class="search-container">
   <%= form_with url:search_books_path, method: :get, local: true do |form|%>
 
@@ -22,10 +22,7 @@
     <%= form.radio_button(:time, "0",checked:("0" ==params[:time])) %>
     <%= form.label(:time, "指定なし", value: "0" ,class: "radio") %>
 </div>
-
   <% end %>
-
-
 </div>
 
 <%= render :partial => "shared/allbooks" %>
