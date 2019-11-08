@@ -38,9 +38,9 @@
   <% if !@revue.nil? %>
     <%= render 'shared/revue_form' %>
   <% end %>
-
-  <h3>感想一覧 (<%= @revues.count %>件)</h3>
+<div class="revues-wrapper">
+  <h3 class="revues-top">感想一覧 (<%= @revues.count %>件)</h3>
   <%= render 'revues/revue' %>
-
+</div>
   <h2><%= link_to '図書一覧に戻る', root_path %></h2>
 </div>

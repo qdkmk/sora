@@ -347,6 +347,10 @@ h2 {
   font-weight: normal;
   color: $gray-light;
 }
+h3{
+  font-size: 3.5rem;
+  letter-spacing: 0.1rem;
+}
 
 h4 {
   font-size: 3.5rem;
@@ -370,22 +374,38 @@ h4 {
   @include pc {
     width: 50%;
   };
+  h3.revues-top{
+    margin-top: 3rem;
 
+  }
   li {
-    padding: 15px;
-    border: 1px solid #e8e8e8;
+    padding: 3rem;
+    border: 1px solid #eee;
+    margin-bottom: 2rem;
   }
 
   .title {
-    font-size: 2rem;
-    margin-top: 5em;
+    font-size: 3.2rem;
+    line-height: 2;
+    margin: auto;
     padding-top: 0;
     word-wrap: break-word;
+    @include sp {
+      font-size: 2.6rem;
+    };
   }
 
   .content {
+    font-size: 1.6rem;
+    line-height: 1.8;
     display: block;
     word-wrap: break-word;
+    text-align: justify;
+    @include sp {
+      font-size: 1.3rem;
+    };
+  }
+  .book-title{
   }
 
   .timestamp,
@@ -409,15 +429,23 @@ h4 {
     };
   }
 }
+
 /* revue form */
+.revues-wrapper{
+  background-color: #ddd;
+  padding: 3rem ;
+  margin: auto -15%;
+  @include sp {
+    margin: auto -5%;
+  };
+}
 .revue-form-wrapper {
   background-color: #eee;
   padding: 10px 30px 30px;
   width: 100%;
-  margin: auto;
+  margin: 5rem auto;
   @include pc {
     width: 50%;
-    margin-top: 20px;
   };
 
   .revue-form {
@@ -429,10 +457,16 @@ h4 {
       margin: 0 auto;
       width: 100%;
     }
+    .content{
+      min-height: 15rem;
+    }
   }
 }
 /*user show*/
 .center table.user_table {
   width: 70%;
   margin: auto;
+  @include sp {
+    width: 90%;
+  };
 }

@@ -5,7 +5,7 @@
         <li id="revues-<%= revue.id %>">
           <span class="title"><%= revue.title %></span>
           <p class="content"><%= revue.content %></p>
-          <span class="book">
+          <span class="book-title">
             <%= link_to "『#{Book.find(revue.book_id).title}』",
               book_path(revue.book_id) %>
           </span>
